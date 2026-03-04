@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio Joana Santos</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-start: #020617;
+      --bg-end: #002b5b;
+      --accent: #00c4ff;
+      --accent-soft: #38bdf8;
+      --text-main: #e5f4ff;
+      --text-muted: #cbd5f5;
+      --card-bg: rgba(8, 47, 73, 0.8);
+      --border: #0ea5e9;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #00111f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 24px 32px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .profile-tag {
+      font-size: 0.9rem;
+      color: var(--accent-soft);
+      margin-bottom: 20px;
+    }
+
+    .profile-tag span {
+      margin-left: 4px;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
+
+    .hero-title strong {
+      color: var(--accent);
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin-bottom: 26px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #00111f;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.45);
+      background: #22d3ee;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--accent);
+      color: var(--accent-soft);
+    }
+
+    .btn-outline:hover {
+      background: rgba(8, 47, 73, 0.9);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-image-wrapper {
+      justify-self: center;
+      position: relative;
+    }
+
+    .hero-image-card {
+      width: min(320px, 80vw);
+      border-radius: 24px;
+      border: 2px solid var(--accent);
+      overflow: hidden;
+      background: var(--card-bg);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-image-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image-badge {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--accent);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.6);
+    }
+
+    .social-section {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .social-section h2 {
+      font-size: 1rem;
+      margin-bottom: 24px;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .social-button {
+      min-width: 180px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--text-main);
+      font-size: 0.92rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .social-button span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 2px solid var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .social-button:hover {
+      background: rgba(8, 47, 73, 0.9);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.9);
+      border-color: #38bdf8;
+    }
+
+    footer {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding-top: 8px;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    footer span {
+      color: var(--accent-soft);
+    }
+
+    @media (max-width: 840px) {
+      body {
+        align-items: flex-start;
+      }
+
+      main {
+        padding-top: 32px;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: center;
+      }
+
+      .hero-text {
+        max-width: 100%;
+        margin-inline: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image-wrapper {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="profile-tag">
+          @joana.png<span>★</span>
+        </div>
+        <h1 class="hero-title">
+          Capture seus momentos<br />
+          mais preciosos e<br />
+          <strong>transforme-os em memórias eternas!!</strong>
+        </h1>
+        <p class="hero-text">
+          Olá! Sou Joana Santos, fotógrafa especializada em eternizar histórias. Com um olhar sensível,
+          transformo instantes em arte. Que tal registrarmos a sua?
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="./pages/sobre-mim.html">Sobre mim</a>
+          <a class="btn btn-outline" href="./pages/meus-trabalhos.html">Meus trabalhos</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="./5268-IA-Para-Dev-Cursor-imagens/profile-pic.png" alt="Fotógrafa segurando câmera" />
+        </div>
+        <div class="hero-image-badge" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="social-section">
+      <h2>Acesse minhas redes:</h2>
+      <div class="social-grid">
+        <button class="social-button">
+          <span class="icon">P</span>
+          <span>Pinterest</span>
+        </button>
+        <button class="social-button">
+          <span class="icon">in</span>
+          <span>LinkedIn</span>
+        </button>
+        <button class="social-button">
+          <span class="icon">IG</span>
+          <span>Instagram</span>
+        </button>
+        <button class="social-button">
+          <span class="icon">t</span>
+          <span>Twitter</span>
+        </button>
+      </div>
+      <footer>
+        Desenvolvido por <span>Alura</span>.
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // JS da home poderá ser adicionado aqui depois
+  </script>
+</body>
+</html>
+

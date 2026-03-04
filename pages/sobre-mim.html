@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre mim - Joana Santos</title>
+  <style>
+    :root {
+      --bg-start: #020617;
+      --bg-end: #002b5b;
+      --accent: #00c4ff;
+      --accent-soft: #38bdf8;
+      --text-main: #e5f4ff;
+      --text-muted: #cbd5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #00111f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      padding: 40px 24px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .page-header a {
+      font-size: 0.9rem;
+      color: var(--accent-soft);
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      transition: background-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .page-header a:hover {
+      background-color: rgba(15, 23, 42, 0.9);
+      transform: translateY(-1px);
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      color: var(--accent-soft);
+      font-size: 0.95rem;
+    }
+
+    .content {
+      margin-top: 24px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div>
+        <h1>Sobre mim</h1>
+        <p class="subtitle">Conheça um pouco mais sobre a minha trajetória na fotografia.</p>
+      </div>
+      <a href="../index.html">← Voltar para a home</a>
+    </header>
+
+    <section class="content">
+      <p>
+        Esta é a página base de <strong>Sobre mim</strong>. Em breve, vamos adicionar aqui a biografia completa da Joana,
+        seus valores, forma de trabalho e bastidores das sessões fotográficas.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    // Scripts específicos da página "Sobre mim" poderão ser adicionados aqui.
+  </script>
+</body>
+</html>
+
