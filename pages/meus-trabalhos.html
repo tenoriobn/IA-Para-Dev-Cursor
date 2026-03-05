@@ -231,7 +231,61 @@
   </main>
 
   <script>
-    // Scripts específicos da página "Meus trabalhos" poderão ser adicionados aqui.
+    (function () {
+      const mainImage = document.querySelector(".works-main-image img");
+      const thumbButtons = Array.from(document.querySelectorAll(".works-thumbs .thumb"));
+      const prevButton = document.querySelector(".works-arrow-left");
+      const nextButton = document.querySelector(".works-arrow-right");
+
+      if (!mainImage || !thumbButtons.length || !prevButton || !nextButton) return;
+
+      let currentIndex = 0;
+
+      function showImage(index) {
+        const clampedIndex = (index + thumbButtons.length) % thumbButtons.length;
+        const button = thumbButtons[clampedIndex];
+        const img = button.querySelector("img");
+        if (!img) return;
+
+        mainImage.src = img.src;
+        mainImage.alt = img.alt;
+
+        thumbButtons.forEach((btn, i) => {
+          if (i === clampedIndex) {
+            btn.classList.add("is-active");
+          } else {
+            btn.classList.remove("is-active");
+          }
+        });
+
+        currentIndex = clampedIndex;
+      }
+
+      thumbButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          showImage(index);
+        });
+      });
+
+      prevButton.addEventListener("click", () => {
+        showImage(currentIndex - 1);
+      });
+
+      nextButton.addEventListener("click", () => {
+        showImage(currentIndex + 1);
+      });
+
+      // Sincroniza a imagem principal com a miniatura marcada inicialmente
+      const initialActiveIndex = thumbButtons.findIndex((btn) =>
+        btn.classList.contains("is-active")
+      );
+
+      if (initialActiveIndex >= 0) {
+        showImage(initialActiveIndex);
+      } else {
+        showImage(0);
+      }
+    })();
   </script>
 </body>
 </html>
